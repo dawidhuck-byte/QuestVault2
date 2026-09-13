@@ -10,7 +10,21 @@
 - Белый фон, лёгкие звёзды, которые медленно пульсируют/уменьшаются
 - Без эмодзи
 
-## Быстрый старт
+## Структура проекта (важно)
+
+```
+froblok/
+├── package.json
+├── server.js          ← главный файл сервера (в корне!)
+├── public/
+│   ├── index.html
+│   ├── css/
+│   ├── js/
+│   └── assets/
+└── README.md
+```
+
+## Быстрый старт (локально)
 
 ```bash
 npm install
@@ -31,18 +45,21 @@ npm start
 ## Что умеет сервер
 
 - `GET /api/search?q=ник` — поиск пользователей Roblox
-- `GET /api/avatar/:userId` — аватарка (редирект на thumbnail)
+- `GET /api/avatar/:userId` — аватарка
 - `GET /api/user/:userId` — описание и доп. инфо
 
-## Деплой на GitHub + хостинг
+## Деплой (Railway / Render / Fly и т.п.)
 
-1. Создай репозиторий на GitHub и залей эту папку.
-2. Для работы API нужен Node-хостинг:
-   - [Railway](https://railway.app)
-   - [Render](https://render.com)
-   - [Fly.io](https://fly.io)
-3. Укажи команду запуска: `npm start`
-4. Порт берётся из `process.env.PORT` автоматически.
+1. Залей **содержимое** папки froblok в корень репозитория.
+   - В корне репозитория должны лежать `package.json` и `server.js` рядом.
+   - Не клади всё внутрь ещё одной папки froblok.
+
+2. Команда запуска: `npm start`  
+   (или `node server.js`)
+
+3. Порт берётся из `process.env.PORT` автоматически.
+
+Если видишь ошибку `Cannot find module '/app/server/index.js'` — значит на хосте нет файла `server.js` в корне. Проверь, что файлы загружены правильно и Root Directory на хостинге указывает на папку, где лежит package.json.
 
 На чистом GitHub Pages (только статика) поиск работать не будет — нужен бэкенд.
 

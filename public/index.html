@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Froblok</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="stars"></canvas>
+
+  <div class="page">
+    <header class="header">
+      <div class="brand">Froblok</div>
+      <div class="search-box">
+        <input type="text" id="search" placeholder="Поиск по нику Roblox..." autocomplete="off" spellcheck="false">
+        <button id="search-btn" type="button">Найти</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="window" id="main-window">
+        <div class="window-bar">
+          <span class="window-title">Игроки</span>
+          <span class="window-status" id="status">Готово</span>
+        </div>
+        <div class="window-body">
+          <div class="results" id="results">
+            <div class="placeholder" id="placeholder">
+              Введите ник сверху и нажмите «Найти».<br>
+              Поиск идёт через реальный Roblox API.
+            </div>
+          </div>
+
+          <div class="detail" id="detail" hidden>
+            <div class="detail-top">
+              <img id="detail-avatar" src="" alt="" width="96" height="96">
+              <div class="detail-meta">
+                <h2 id="detail-name"></h2>
+                <p id="detail-display"></p>
+                <p id="detail-id"></p>
+              </div>
+            </div>
+            <div class="detail-desc" id="detail-desc"></div>
+            <div class="dance-panel">
+              <div id="dance-canvas-wrap">
+                <canvas id="dance-canvas"></canvas>
+              </div>
+              <button id="dance-btn" type="button">Танец</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="audio-controls">
+        <button id="music1" type="button">track 1</button>
+        <button id="music2" type="button">track 2</button>
+      </div>
+      <span class="credit">Froblok · real Roblox search</span>
+    </footer>
+  </div>
+
+  <audio id="audio1" loop preload="none">
+    <source src="/assets/music1.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="audio2" loop preload="none">
+    <source src="/assets/music2.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="/js/stars.js"></script>
+  <script src="/js/dance.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
